@@ -1,9 +1,4 @@
-<<<<<<< HEAD
-pubspec.lock
-.dart_tool/package_config_subset
-.dart_tool/package_config.json
-=======
-.dart_tool/package_config.json
-.dart_tool/package_config_subset
-pubspec.lock
->>>>>>> 667d96731b8428706cfa7ae0c47d534611047798
+.dart_tool/
+build/
+pubspec.lock  # Except for application packages
+doc/api/
