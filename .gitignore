@@ -1,4 +1,4 @@
-.dart_tool/
+!.dart_tool/
 build/
 pubspec.lock  # Except for application packages
 doc/api/
