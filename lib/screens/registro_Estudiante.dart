@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 
@@ -24,10 +26,32 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
   final _formKey = GlobalKey<FormState>();
 
   String? _nombre;
-  String? _apellido;
+  String? _apellidopaterno;
+  String? _apellidomaterno;
   String? _correo;
+  String? _password;
+  Int? _edad;
   String? _universidad;
   String? _carrera;
+  String? _pais;
+  String? _estado;
+  String? _localidad;
+  String? _url_cv;
+  String? _url_foto;
+  Int? _semestre;
+  List<String> _aptitudes = [];
+  List<String> _puesto_de_interes = [];
+  String? _descripcion_personal;
+  Int? _horas_total_practicas;
+  String? _modalidad;
+  String? _tipo_de_contrato;
+  List<String> _contacto = [];
+  String? _numero_celular;
+  String? _numero_fijo;
+
+
+
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +75,7 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
               },
             ),
             TextFormField(
-              decoration: const InputDecoration(labelText: 'Apellido'),
+              decoration: const InputDecoration(labelText: 'Apellido Paterno'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Por favor ingrese un apellido';
@@ -59,7 +83,7 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
                 return null;
               },
               onSaved: (value) {
-                _apellido = value;
+                _apellidopaterno = value;
               },
             ),
             TextFormField(
