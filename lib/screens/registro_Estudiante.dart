@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class RegistroEstudianteScreen extends StatelessWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
 
