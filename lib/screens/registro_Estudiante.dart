@@ -1,6 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
 
+//const RegistroEstudianteForm(),
 class RegistroEstudianteScreen extends StatelessWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
 
@@ -8,9 +9,19 @@ class RegistroEstudianteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Registro de estudiante')),
-      body: const RegistroEstudianteForm(),
+      body: 
+            Stepper(
+              type: StepperType.horizontal,
+              steps: getSteps(),
+            ),
     );
+    
   }
+  List<Step> getSteps() =>[
+    Step(title: Text( 'Cuenta'),content: Container()),
+    Step(title: Text( 'Curriculum'),content: Container()),
+    Step(title: Text( 'Listo'),content: Container()),
+  ];
 }
 
 class RegistroEstudianteForm extends StatefulWidget {
@@ -47,9 +58,6 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
   String? _numero_celular;
   String? _numero_fijo;
   bool _showPassword = false;
-
-
-
 
   @override
   Widget build(BuildContext context) {
