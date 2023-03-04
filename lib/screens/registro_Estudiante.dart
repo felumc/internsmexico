@@ -1,7 +1,5 @@
 import 'dart:ffi';
-
 import 'package:flutter/material.dart';
-
 
 class RegistroEstudianteScreen extends StatelessWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
@@ -28,7 +26,7 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
   String? _nombre;
   String? _apellidopaterno;
   String? _apellidomaterno;
-  String? _correo;
+  String? _mail;
   String? _password;
   Int? _edad;
   String? _universidad;
@@ -48,10 +46,7 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
   List<String> _contacto = [];
   String? _numero_celular;
   String? _numero_fijo;
-
-
-
- 
+  bool _showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -78,12 +73,24 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
               decoration: const InputDecoration(labelText: 'Apellido Paterno'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Por favor ingrese un apellido';
+                  return 'Por favor ingresa tu apellido paterno';
                 }
                 return null;
               },
               onSaved: (value) {
                 _apellidopaterno = value;
+              },
+            ),
+            TextFormField(
+              decoration: const InputDecoration(labelText: 'Apellido Materno'),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa tu apellido materno';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _apellidomaterno = value;
               },
             ),
             TextFormField(
@@ -99,7 +106,48 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
                 return null;
               },
               onSaved: (value) {
-                _correo = value;
+                _mail = value;
+              },
+            ),
+            TextFormField(
+              obscureText: !_showPassword,
+              decoration: InputDecoration(
+                labelText: 'Contraseña',
+                suffixIcon: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _showPassword = !_showPassword;
+                    });
+                  },
+                  child: Icon(
+                    _showPassword ? Icons.visibility : Icons.visibility_off,
+                    semanticLabel: _showPassword
+                        ? 'Ocultar contraseña'
+                        : 'Mostrar contraseña',
+                  ),
+                ),
+              ),
+              validator: (value) {
+                if (value == null || value.isEmpty) {
+                  return 'Por favor ingresa tu contraseña';
+                }
+                if (value.length < 8) {
+                  return 'La contraseña debe tener al menos 8 caracteres';
+                }
+                if (!value.contains(new RegExp(r'(?=.*?[A-Z])'))) {
+                  return 'La contraseña debe contener al menos una letra mayúscula';
+                }
+                if (!value.contains(new RegExp(r'(?=.*?[a-z])'))) {
+                  return 'La contraseña debe contener al menos una letra minúscula';
+                }
+                if (!value
+                    .contains(new RegExp(r'(?=.*?[!@#$%^&*(),.?":{}|<>])'))) {
+                  return 'La contraseña debe contener al menos un símbolo especial';
+                }
+                return null;
+              },
+              onSaved: (value) {
+                _password = value;
               },
             ),
             TextFormField(
