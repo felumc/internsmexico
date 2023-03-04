@@ -1,5 +1,7 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
+
 
 class RegistroEstudianteScreen extends StatelessWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
