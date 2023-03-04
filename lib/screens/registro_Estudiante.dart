@@ -1,8 +1,5 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
-import 'package:http/http.dart' as http;
-import 'package:image_picker/image_picker.dart';
-
 
 class RegistroEstudianteScreen extends StatelessWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
@@ -50,6 +47,9 @@ class _RegistroEstudianteFormState extends State<RegistroEstudianteForm> {
   String? _numero_celular;
   String? _numero_fijo;
   bool _showPassword = false;
+
+
+
 
   @override
   Widget build(BuildContext context) {
