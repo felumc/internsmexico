@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:ffi';
-import 'package:flutter/material.dart';
+//import 'package:flutter/material.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pdfWidgets;
 import 'package:path_provider/path_provider.dart';
@@ -538,7 +538,7 @@ class _RegistroEmpresaScreenState extends State<RegistroEmpresaScreen> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                 Text(_selectedAreas.toString() ?? ''),
+                 Text(_selectedAreas.toString()),
                 ],
               ),
             ],

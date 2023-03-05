@@ -1,6 +1,6 @@
-# interns_mexico
+# Interns Mexico
 
-A new Flutter project.
+Connecting Students with Companies
 
 ## Getting Started
 
