@@ -9,6 +9,7 @@ En Interns México sabemos que para los estudiantes universitarios, actualmente 
 - Servicio Social
 - Internships
 - Apprenticeships 
+
 En México adecuadas a su carrera, intereses y necesidades.
 
 Por lo que decidimos generar una plataforma de vinculación para estudiantes que busquen realizar estas actividades en alguna empresa de manera que la vinculación entre estos sea más sencilla.
