@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'V 0.1.0 Registro Empresas Agregado'),
+      home: const MyHomePage(title: 'V 0.2.0 Pre-login Agregado'),
       routes: {
         '/Login': (_) => const LoginScreen(),
         '/Registro_de_estudiantes': (_) => const RegistroEstudianteScreen(),
