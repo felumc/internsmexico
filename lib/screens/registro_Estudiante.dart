@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 
 class RegistroEstudianteScreen extends StatefulWidget {
@@ -105,6 +106,10 @@ class _RegistroEstudianteScreenState extends State<RegistroEstudianteScreen> {
 Future<void> generateAndSavePdf() async {
   final pdf = pw.Document();
 
+//   final image = pw.MemoryImage(
+// (await rootBundle.load('assets/images/Logo.png')).buffer.asUint8List(),
+// );
+
     // Add page to the PDF
     pdf.addPage(
       pw.Page(
@@ -118,7 +123,7 @@ Future<void> generateAndSavePdf() async {
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text('$_nombre $_apellidopaterno $_apellidomaterno', style: pw.TextStyle(fontSize: 30)),
-                  //pw.Image(File(imageUrl).readAsBytesSync()),
+                  // pw.Image(image),
                 ],
               ),
               pw.SizedBox(height: 20),
