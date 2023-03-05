@@ -105,23 +105,33 @@ class _RegistroEstudianteScreenState extends State<RegistroEstudianteScreen> {
 Future<void> generateAndSavePdf() async {
   final pdf = pw.Document();
 
-  pdf.addPage(pw.Page(
-    build: (pw.Context context) {
-      return pw.Center(
-        child: pw.Text('Hello World!'),
-      );
-    },
-  ));
-
-  // Obtiene el directorio de documentos
-  //final directory = await getApplicationDocumentsDirectory();
-
-  // Crea el archivo en el directorio de documentos con el nombre 'example.pdf'
-  //final file = File('${directory.path}/example.pdf');
-
-  // Guarda el documento en el archivo
-  //await file.writeAsBytes(await pdf.save());
-
+    // Add page to the PDF
+    pdf.addPage(
+      pw.Page(
+        pageFormat: PdfPageFormat.a4,
+        build: (context) {
+          // Add header to the page
+          return pw.Column(
+            crossAxisAlignment: pw.CrossAxisAlignment.start,
+            children: [
+              pw.Row(
+                mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
+                children: [
+                  pw.Text('$_nombre $_apellidopaterno $_apellidomaterno', style: pw.TextStyle(fontSize: 30)),
+                  //pw.Image(File(imageUrl).readAsBytesSync()),
+                ],
+              ),
+              pw.SizedBox(height: 20),
+              pw.Text('Contact', style: pw.TextStyle(fontSize: 20)),
+              pw.Divider(thickness: 1),
+              pw.SizedBox(height: 10),
+              pw.Text('Email: $_mail', style: pw.TextStyle(fontSize: 15)),
+              pw.Text('Phone: $_mail', style: pw.TextStyle(fontSize: 15)),
+            ],
+          );
+        },
+      ),
+    );
   // Mostrar el diálogo de selección de archivo y obtener la ruta de destino
   final path = await FilePicker.platform.getDirectoryPath();
   
