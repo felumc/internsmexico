@@ -1,16 +1,14 @@
-# Interns Mexico
+# Interns México
 
 Connecting Students with Companies
 
-## Getting Started
+## Who are we?
 
-This project is a starting point for a Flutter application.
+En Interns México sabemos que para los estudiantes universitarios, actualmente es muy difícil encontrar un medio para encontrar donde realizar 
+- Prácticas Profesionales
+- Servicio Social
+- Internships
+- Apprenticeships 
+En México adecuadas a su carrera, intereses y necesidades.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Por lo que decidimos generar una plataforma de vinculación para estudiantes que busquen realizar estas actividades en alguna empresa de manera que la vinculación entre estos sea más sencilla.
