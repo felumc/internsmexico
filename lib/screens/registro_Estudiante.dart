@@ -1,5 +1,12 @@
 import 'dart:ffi';
 import 'package:flutter/material.dart';
+import 'package:pdf/pdf.dart';
+import 'package:pdf/widgets.dart' as pdfWidgets;
+import 'package:path_provider/path_provider.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
+
 
 class RegistroEstudianteScreen extends StatefulWidget {
   const RegistroEstudianteScreen({Key? key}) : super(key: key);
@@ -51,10 +58,11 @@ class _RegistroEstudianteScreenState extends State<RegistroEstudianteScreen> {
           type: StepperType.horizontal,
           steps: getSteps(),
           currentStep: currentStep,
-          onStepContinue: () {
+          onStepContinue: () async {
             final isLastStep = currentStep == getSteps().length - 1;
             if (isLastStep) {
               print('Completed');
+              await generateAndSavePdf();
             } else {
               if (_formKey.currentState!.validate()) {
                 _formKey.currentState!.save();
@@ -93,6 +101,36 @@ class _RegistroEstudianteScreenState extends State<RegistroEstudianteScreen> {
           },
         ),
       );
+
+Future<void> generateAndSavePdf() async {
+  final pdf = pw.Document();
+
+  pdf.addPage(pw.Page(
+    build: (pw.Context context) {
+      return pw.Center(
+        child: pw.Text('Hello World!'),
+      );
+    },
+  ));
+
+  // Obtiene el directorio de documentos
+  //final directory = await getApplicationDocumentsDirectory();
+
+  // Crea el archivo en el directorio de documentos con el nombre 'example.pdf'
+  //final file = File('${directory.path}/example.pdf');
+
+  // Guarda el documento en el archivo
+  //await file.writeAsBytes(await pdf.save());
+
+  // Mostrar el diálogo de selección de archivo y obtener la ruta de destino
+  final path = await FilePicker.platform.getDirectoryPath();
+  
+  // Guardar el archivo PDF en la ruta seleccionada por el usuario
+  if (path != null) {
+    final file = File('$path/mi_archivo.pdf');
+    await file.writeAsBytes(await pdf.save());
+  }
+}
 
   List<Step> getSteps() => [
         Step(
