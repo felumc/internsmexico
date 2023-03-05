@@ -106,9 +106,9 @@ class _RegistroEstudianteScreenState extends State<RegistroEstudianteScreen> {
 Future<void> generateAndSavePdf() async {
   final pdf = pw.Document();
 
-//   final image = pw.MemoryImage(
-// (await rootBundle.load('assets/images/Logo.png')).buffer.asUint8List(),
-// );
+  final image = pw.MemoryImage(
+(await rootBundle.load('assets/images/Logo.png')).buffer.asUint8List(),
+);
 
     // Add page to the PDF
     pdf.addPage(
@@ -123,7 +123,7 @@ Future<void> generateAndSavePdf() async {
                 mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                 children: [
                   pw.Text('$_nombre $_apellidopaterno $_apellidomaterno', style: pw.TextStyle(fontSize: 30)),
-                  // pw.Image(image),
+                  pw.Image(image),
                 ],
               ),
               pw.SizedBox(height: 20),
