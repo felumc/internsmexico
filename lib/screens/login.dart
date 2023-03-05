@@ -26,15 +26,15 @@ class _LoginScreenState extends State<LoginScreen> {
                   Container(
                     padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
                     child: Text(
-                      'InternsMX',
+                      'InternsMx',
                       style:
                           TextStyle(fontSize: 80.0, fontWeight: FontWeight.bold),
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(260.0, 125.0, 0.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(270.0, 125.0, 0.0, 0.0),
                     child: Text(
-                      '.',
+                      '___',
                       style: TextStyle(
                           fontSize: 80.0,
                           fontWeight: FontWeight.bold,
@@ -52,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   children: <Widget>[
                     TextFormField(
                       controller: _emailController,
-                      decoration: InputDecoration(labelText: 'Correo Electronico',
+                      decoration: InputDecoration(icon: Icon(Icons.email), hintText: 'pp@sv.com', labelText: 'Correo Electronico',
                         labelStyle: TextStyle(
                             fontFamily: 'Montserrat',
                             fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Coloca un correo electronico';
+                          return 'Coloca un correo electronico'; //COPIADO DE VAREGOD
                         }
                         if (!value.contains('@')) {
                           return 'Por favor ingrese un correo válido';
@@ -74,6 +74,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     TextFormField(
                       controller: _passwordController,
                       decoration: InputDecoration(
+                          icon: Icon(Icons.lock),
                           labelText: 'Password',
                           labelStyle: TextStyle(
                               fontFamily: 'Montserrat',
